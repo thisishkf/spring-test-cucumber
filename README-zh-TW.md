@@ -1,12 +1,12 @@
 # spring-test-cucumber
 
-* Read from other language: [English](README.md), [繁體中文](README-zh-TW.md)
+* 更多文檔語言: [English](README.md), [繁體中文](README-zh-TW.md)
 
 In order to ensure the continuous-quality, integration testing is always introduced to the projects.
 
 > It’s simple. Whether open source or commercial, our collaboration tools will boost your engineering team's performance by employing Behavior-Driven Development (BDD). And with our world-class training, take it to places it’s never been. 
 
-## Table of Content
+## 目錄
 
 - [spring-test-cucumber](#spring-test-cucumber)
     - [Table of Content](#Table-of-Content)
@@ -22,11 +22,11 @@ In order to ensure the continuous-quality, integration testing is always introdu
         - [Implement the testing steps](#Implement-the-testing-steps)
     - [Related Reading](#Related-Reading)
 
-## Project Set ups
+## 項目配設
  
-### API server
+### API 服務器
 
-we will be using Java SpringBoot to develop a simple API server
+我們將會使用 Java SpringBoot 來開發一個簡單的API 服務器。
 
 ```
 <dependency>
@@ -38,9 +38,9 @@ we will be using Java SpringBoot to develop a simple API server
     <artifactId>spring-boot-starter-web</artifactId>
 </dependency>
 ```
-### Cucumber Test
+### 測試配件
 
-We will be using SpringBoot Test and cucumber
+我們將會使用 SpringBoot 及 cucumber 的測試配件
 
 ```
 <dependency>
@@ -68,7 +68,7 @@ We will be using SpringBoot Test and cucumber
 </dependency>
 ```
 
-### versions
+### 配件版本
 
 ```xml
 <properties>
@@ -77,27 +77,27 @@ We will be using SpringBoot Test and cucumber
 </properties>
 ```
 
-## Given When Then Strategy
+## Given When Then 
 
 > TODO
 
-## Implementation
+## 實現
 
-### Create Testing Server
+### 生成測試用服務器
 
-In `CucumberSpringConfiguration.java`, we are using annotation to create a testing server, and wiring the cucumber context to the testing server.
+在 `CucumberSpringConfiguration.java`, 我們會利用註解來生成服務器, 調用測試用服務器到cucumber context.
 
 ```
 @CucumberContextConfiguration
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 ```
 
-### Writing our GWT test cases
+### 編寫我們的測試用例
 
-As mentioned in the above [Given-When-Then Strategy](#Given-When-Then-Strategy), we are using GWT Strategy for the cucumber test.
-Elements in `.feature` file will be applied to cucumber test automatically.
+在 [Given-When-Then Strategy](#Given-When-Then-Strategy)提到, 我們會用 GWT 方式來設計我們的測試用例.
+所有在`.feature` 的元素都會被cucumber自動掃描及測試.
 
-GWT Example:
+GWT 例子:
 ```
 Feature: Is number lucky
     Check a number is lucky
@@ -107,24 +107,23 @@ Feature: Is number lucky
         Then Number is not lucky
 ``` 
 
-### Configure Cucumber
+### 配設 Cucumber
 
-We are going to use junit runner to start a Cucumber test. Also, the feature directory have to configured. 
+我們會利用 junit runner 執行Cucumber測試, 並把feature 檔案配設到cucumber 中。 
 
-Example from `LuckNumberTest.java`
+`LuckNumberTest.java`例子:
+
 ```java
 @RunWith(Cucumber.class)
 @CucumberOptions(features = "classpath:features")
 public class LuckNumberTest { }
 ```
 
-### Implement the testing steps
+### 實現測試案步驟
 
-As we are doing end-to-end integration test for the application behavior, we will send a real http request to our test server.It is recommended to create helper class for the requests. Example: `util/LuckNumberClient.java`.
+在端到端集成測試中, 我們想測試到系統的表現, 所以我們會傳送真實的HTTP 請求到測試服務器中. 請求最好是寫到輔助工具中. 倒如: `util/LuckNumberClient.java`.
 
-For the implementation, we will define the actual behavior for all element in feature file.
-
-Using `Scenario: 1 is not lucky` as example, there is a `Given` and a `Then`:
+以 `Scenario: 1 is not lucky` 為例子, 有一個 `Given` 及一個 `Then`:
 
 ```
  @Given("^I set (\\d+) to lucky number$")
@@ -141,8 +140,8 @@ Using `Scenario: 1 is not lucky` as example, there is a `Given` and a `Then`:
  }
 ```
 
-## Related Reading
+## 相關閱讀
 
-[Cucumber Official Website](https://cucumber.io/)
+[Cucumber官方網站](https://cucumber.io/)
 
 [GivenWhenThen by Martin Fowler](https://martinfowler.com/bliki/GivenWhenThen.html)
