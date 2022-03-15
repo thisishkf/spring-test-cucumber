@@ -6,6 +6,4 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(features = "classpath:features")
-public class LuckNumberTest {
-
-}
+public class LuckyNumberTest { }

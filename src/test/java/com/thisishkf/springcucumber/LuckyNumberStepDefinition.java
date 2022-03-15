@@ -14,7 +14,7 @@ import org.springframework.http.ResponseEntity;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class LuckNumberStepDefinition {
+public class LuckyNumberStepDefinition {
 
     @Autowired
     private LuckNumberClient client;
