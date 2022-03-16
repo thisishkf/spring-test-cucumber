@@ -9,20 +9,20 @@ In order to ensure the continuous-quality, integration testing is always introdu
 ## 目錄
 
 - [spring-test-cucumber](#spring-test-cucumber)
-    - [Table of Content](#Table-of-Content)
-    - [Project Set ups](#Project-Set-ups)
-        - [API server](#API-server)
-        - [Cucumber Test](#Cucumber-Test)
-        - [Versions](#versions)
-    - [Given-When-Then Strategy](#Given-When-Then-Strategy)
-    - [Implementation](#Implementation)
-        - [Create Testing Server](#Create-Testing-Server)
-        - [Writing our GWT test cases](#Writing-our-GWT-test-cases)
-        - [Configure Cucumber](#Configure-Cucumber)
-        - [Implement the testing steps](#Implement-the-testing-steps)
-    - [Related Reading](#Related-Reading)
+    - [目錄](#目錄)
+    - [項目配置](#項目配置)
+        - [API 服務器](#API-服務器)
+        - [測試配件](#測試配件)
+        - [配件版本](#配件版本)
+    - [Given-When-Then Strategy](#Given-When-Then)
+    - [實現](#實現)
+        - [生成測試用服務器](#生成測試用服務器)
+        - [編寫我們的測試用例](#編寫我們的測試用例)
+        - [配設 Cucumber](#配設-Cucumber)
+        - [實現測試案步驟](#實現測試案步驟)
+    - [相關閱讀](#相關閱讀)
 
-## 項目配設
+## 項目配置
  
 ### API 服務器
 
